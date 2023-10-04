@@ -1,0 +1,89 @@
+package ejercicios;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Alumno
+ */
+public class Triangulo {
+
+	private double ladoUno;
+	private double ladoDos;
+	private double ladoTres;
+	private String colorRelleno;
+	private String colorLinea;
+	
+	public Triangulo (double elLadoUno, double elLadoDos, double elLadoTres,  String colorDeRelleno, String colorDeLinea){
+		
+		ladoUno = elLadoUno;
+		ladoDos = elLadoDos;
+	    ladoTres = elLadoTres;
+		colorRelleno = colorDeRelleno;
+		colorLinea = colorDeLinea;
+	}
+
+	public double getLadoUno() {
+		return ladoUno;
+	}
+
+	public void setLadoUno(double ladoUno) {
+		this.ladoUno = ladoUno;
+	}
+
+	public double getLadoDos() {
+		return ladoDos;
+	}
+
+	public void setLadoDos(double ladoDos) {
+		this.ladoDos = ladoDos;
+	}
+
+	public double getLadoTres() {
+		return ladoTres;
+	}
+
+	public void setLadoTres(double ladoTres) {
+		this.ladoTres = ladoTres;
+	}
+
+	public String getColorRelleno() {
+		return colorRelleno;
+	}
+
+	public void setColorRelleno(String colorRelleno) {
+		this.colorRelleno = colorRelleno;
+	}
+
+	public String getColorLinea() {
+		return colorLinea;
+	}
+
+	public void setColorLinea(String colorLinea) {
+		this.colorLinea = colorLinea;
+	}
+	
+	public double calcularPerimetro (){
+		double aux = ladoUno + ladoDos + ladoTres;
+		return aux;
+	}
+	
+	public double calcularArea () {
+		double s = (ladoUno + ladoDos + ladoTres) / 2.0;
+		double x = (s*(s-ladoUno)* (s-ladoDos)* (s-ladoTres));
+		return Math.sqrt(x);
+		
+	}
+
+	@Override
+	public String toString() {
+		return "triangulo{" + "ladoUno=" + ladoUno + ", oDos=" + ladoDos + ", ladoTres=" + ladoTres + ", colorRelleno=" + colorRelleno + ", colorLinea=" + colorLinea + '}';
+	}
+	
+	
+	
+}
