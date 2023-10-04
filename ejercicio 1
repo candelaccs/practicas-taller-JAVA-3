@@ -1,0 +1,36 @@
+package ejercicios;
+
+import PaqueteLectura.Lector;
+import PaqueteLectura.GeneradorAleatorio;
+
+
+public class Ejercicios {
+
+    public static void main(String[] args) {
+		
+		double ladoUno;
+		double ladoDos;
+		double ladoTres;
+		String coloRelleno;
+		String colorLinea;
+		
+		System.out.println (" ingrese el lado 1");
+		ladoUno = Lector.leerDouble();
+		System.out.println (" ingrese el lado 2 ");
+		ladoDos = Lector.leerDouble();
+		System.out.println ( " ingrese el lado 3 ");
+		ladoTres = Lector.leerDouble();
+		System.out.println ( " ingrese el color de relleno ");
+		coloRelleno = Lector.leerString();
+		System.out.println(" ingrese el color de linea ");
+		colorLinea = Lector.leerString();
+	
+		
+		Triangulo tri = new Triangulo(ladoUno, ladoDos, ladoTres, coloRelleno, colorLinea);
+		
+		System.out.println (" el perimetro del triangulo es " + tri.calcularPerimetro());
+		System.out.println (" el area del triangulo es " + tri.calcularArea());
+		
+    }
+
+}
