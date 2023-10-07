@@ -49,30 +49,35 @@ public class Estante {
     }
     
     
-    public void buscarLibro (String titulo){ // busca un libro por titulo //
+    public Libro buscarLibro (String titulo){ // busca un libro por titulo //
         
         int i=0;
         boolean esta= false;
         while ((i<dim)&& (esta == false)) {
        
-            if (vector [i].getTitulo() == titulo){
-                System.out.println(" se encontro el libro");
-                System.out.println ( " el nombre del autor del libro mujercitas es " + vector [i].getPrimerAutor().getNombre());
+            if (vector [i].getTitulo().equals (titulo)){
+                // System.out.println(" se encontro el libro");
+                // System.out.println ( " el nombre del autor del libro mujercitas es " + vector [i].getPrimerAutor().getNombre());
                 esta = true;
+                System.out.print(" se encontro el libro");
             }    
             else {
                 i++;          
             }
-        }   
-        System.out.println(" no se encontro el titulo ");
-       
+        }  
+        
+        if (esta == false)
+            return null;
+        
+        else
+            return vector [i];
+       // preguntar como funciona el return // 
     }
-    
     
 }
 
-
 MAIN CLASS
+
 
 import PaqueteLectura.Lector;
 
@@ -126,8 +131,11 @@ public class ejercicio1 {
         
         System.out.println(" se guardaron " + estante.getDim() + " libros ");
         
-        estante.buscarLibro("mujercitas"); // FUNCIONA TODO MENOS ESTE // 
+        estante.buscarLibro("mujercitas");
         
+        System.out.println ();
+        
+        System.out.println(estante.buscarLibro("mujercitas").getPrimerAutor().toString());	
     }
     
 }
