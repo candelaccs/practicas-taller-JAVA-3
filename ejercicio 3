@@ -1,0 +1,133 @@
+ESTANTE clase
+
+public class Estante {
+    
+    private Libro [] vector;
+    private int dim ;
+    
+    public Estante (){
+        vector = new Libro [20];
+        dim = 0;
+    }
+
+    public int getDim() { // devuelve la cantidad que hay en el vector //
+        return dim;
+    }
+
+    public Libro[] getVector() {
+        return vector;
+    }
+
+    public void setVector(Libro[] vector) {
+        this.vector = vector;
+    }
+    
+    
+    
+    public boolean estaLleno (){ // se fija si esta lleno //
+        
+        boolean aux = false;
+        
+        if (dim == 20) {
+            aux = true;
+            return aux;
+        }
+        else
+            return aux;
+    }
+    
+    public void agregarLibro (Libro nuevoLibro){ // public libro o public void ? // por que public void ?
+        
+          if (!estaLleno()) {
+              
+              vector [dim] = nuevoLibro;
+              dim = dim+1;
+              System.out.println (" se pudo agregar el libro ");
+          }
+          else
+              System.out.println ( " no se puede agregar el libro " );
+    }
+    
+    
+    public void buscarLibro (String titulo){ // busca un libro por titulo //
+        
+        int i=0;
+        boolean esta= false;
+        while ((i<dim)&& (esta == false)) {
+       
+            if (vector [i].getTitulo() == titulo){
+                System.out.println(" se encontro el libro");
+                System.out.println ( " el nombre del autor del libro mujercitas es " + vector [i].getPrimerAutor().getNombre());
+                esta = true;
+            }    
+            else {
+                i++;          
+            }
+        }   
+        System.out.println(" no se encontro el titulo ");
+       
+    }
+    
+    
+}
+
+
+MAIN CLASS
+
+import PaqueteLectura.Lector;
+
+public class ejercicio1 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+       Estante estante = new Estante ();
+       int dim =0;
+       String origenAu;
+       String nombreAu;
+       String bioAu;
+       String titulo;
+       String editorial;
+       int añoEdicion;
+       String ISBN; 
+       double precio;
+        
+        System.out.println ( "ingrese un titulo");
+        titulo = Lector.leerString();
+        
+        while (!(titulo.equals("zzz")) && (estante.getDim()< 20)) {
+        
+             System.out.println(" ingrese nombre del autor");
+             nombreAu = Lector.leerString();
+             System.out.println ( " ingrese bio del autor ");
+             bioAu = Lector.leerString();
+             System.out.println (" ingrese origen del autor ");
+             origenAu = Lector.leerString();
+             Autor autor = new Autor (nombreAu, bioAu, origenAu);
+             
+             System.out.println ("ingrese editorial ");
+             editorial = Lector.leerString();
+             System.out.println (" ingrese año de edicion de libro ");
+             añoEdicion = Lector.leerInt();
+             System.out.println ("ingrese ISBN");
+             ISBN = Lector.leerString();
+             System.out.println(" ingrese precio");
+             precio = Lector.leerDouble();
+             
+             Libro libro = new Libro (titulo, editorial, añoEdicion, autor, ISBN, precio);
+             estante.agregarLibro(libro);
+             dim++;
+             
+             System.out.println ( "ingrese un titulo");
+             titulo = Lector.leerString();
+        }
+        
+        System.out.println(" se guardaron " + estante.getDim() + " libros ");
+        
+        estante.buscarLibro("mujercitas"); // FUNCIONA TODO MENOS ESTE // 
+        
+    }
+    
+}
