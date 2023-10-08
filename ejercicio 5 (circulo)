@@ -1,0 +1,103 @@
+-A- Definir una clase para representar círculos. Los círculos se caracterizan por su radio
+(double), el color de relleno (String) y el color de línea (String).
+Provea un constructor que reciba todos los datos necesarios para iniciar el objeto.
+Provea métodos para:
+- Devolver/modificar el valor de cada uno de sus atributos (métodos get y set)
+- Calcular el perímetro y devolverlo (método calcularPerimetro)
+- Calcular el área y devolverla (método calcularArea)
+B- Realizar un programa que instancie un círculo, le cargue información leída de teclado e
+informe en consola el perímetro y el área.
+NOTA: la constante PI es Math.PI
+
+
+clase circulo
+
+public class Circulo {
+    
+    private double radio;
+    private String colorRelleno;
+    private String colorLinea;
+   
+    
+    public Circulo (double elRadio, String elColorR, String elColorL){
+        
+        radio = elRadio;
+        colorRelleno = elColorR;
+        colorLinea = elColorL;
+    }
+
+    public double getRadio() {
+        return radio;
+    }
+
+    public void setRadio(double radio) {
+        this.radio = radio;
+    }
+
+    public String getColorRelleno() {
+        return colorRelleno;
+    }
+
+    public void setColorRelleno(String colorRelleno) {
+        this.colorRelleno = colorRelleno;
+    }
+
+    public String getColorLinea() {
+        return colorLinea;
+    }
+
+    public void setColorLinea(String colorLinea) {
+        this.colorLinea = colorLinea;
+    }
+    
+    public double calcularPerimetro (){
+    
+        double perimetro;
+        perimetro = 2*radio*Math.PI;
+        return perimetro;
+        
+    }
+    
+    public double calcularArea (){
+        double area;
+        area = Math.PI*radio*radio;
+        return area;
+    }
+
+    @Override
+    public String toString() {
+        return "Circulo{" + "radio=" + radio + ", colorRelleno=" + colorRelleno + ", colorLinea=" + colorLinea + '}';
+    }
+   
+}
+
+
+MAIN
+
+import PaqueteLectura.Lector;
+
+public class EjercicioCirculo {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        double radio;
+        String colorLinea;
+        String colorRelleno;
+        
+        System.out.println ( "ingrese el radio de su circulo ");
+        radio = Lector.leerDouble();
+        System.out.println(" ingrese el color de la linea de su circulo ");
+        colorLinea = Lector.leerString();
+        System.out.println ( " ingrese el color de relleno ");
+        colorRelleno = Lector.leerString();
+        
+        Circulo circulo = new Circulo (radio, colorLinea, colorRelleno);
+        
+        System.out.println(" el perimetro del circulo es "+ circulo.calcularPerimetro());
+        System.out.println ( "el area del circulo es "+ circulo.calcularArea());
+    }
+    
+}
