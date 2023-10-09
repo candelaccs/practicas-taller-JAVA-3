@@ -165,16 +165,21 @@ public class Hotel {
 
     @Override
     public String toString() {
-       
+
+
+        String aux= "";
+
         for (i=0; i<dim; i++){
-            
+           
             if (vector [i].isDisponible()== true)
-                System.out.println (" Habitacion " + i + " costo: " + vector [i].getCosto() + " no ocupada ");
+                aux = aux + " Habitacion " + i + " costo: " + vector [i].getCosto() + " no ocupada " + "\n" ;
             else
-                System.out.println(" Habitacion " + i + " costo: " + vector [i].getCosto() + " esta ocupada por " + vector [i].getCliente().toString());
+                aux= aux + " Habitacion " + i + " costo: " + vector [i].getCosto() + " esta ocupada por " + vector [i].getCliente().toString()+ "\n";
                     
         }
-        return null; // ?? // esto esta bien? me lo pone java //
+        //  return null; // ?? // esto esta bien? me lo pone java // ACT esta mal //
+
+            return aux;
     }
     
     
