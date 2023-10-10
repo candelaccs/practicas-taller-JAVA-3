@@ -132,7 +132,7 @@ public class Hotel {
         vector = new Habitacion [dim];
     }
     
-    public void inicicializar (){
+    public void inicicializar (){   // esto debe ir privado para que nadie pueda acceder y borrar mis datos
      
         double precio;
         
